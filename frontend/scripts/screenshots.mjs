@@ -11,6 +11,21 @@ mkdirSync(OUT, { recursive: true });
 
 const settle = (page, ms = 1600) => page.waitForTimeout(ms); // let entrance animations finish
 
+// Product images are lazy-loaded: scroll through the page and wait until every <img> has finished.
+async function loadAllImages(page) {
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.body.scrollHeight; y += 500) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 120));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForFunction(() => [...document.images].every((i) => i.complete && i.naturalWidth > 0), null, {
+    timeout: 15000,
+  }).catch(() => {});
+  await page.waitForTimeout(500);
+}
+
 async function search(page, text) {
   const input = page.getByLabel("What's the occasion?");
   await input.fill(text);
@@ -30,10 +45,11 @@ for (const scheme of ["light", "dark"]) {
   await page.waitForTimeout(500);
   await page.screenshot({ path: join(OUT, `02-autocomplete-${scheme}.png`) });
 
-  await search(page, "Diwali");
+  await search(page, "Birthday");
   await page.getByRole("list", { name: "Recommended products" }).waitFor();
   await page.waitForLoadState("networkidle").catch(() => {});
-  await settle(page, 2200);
+  await settle(page, 1200);
+  await loadAllImages(page);
   await page.screenshot({ path: join(OUT, `03-results-${scheme}.png`), fullPage: true });
 
   await page.getByRole("button", { name: /view details/i }).first().click();
@@ -54,7 +70,8 @@ const mpage = await mobile.newPage();
 await mpage.goto(BASE);
 await search(mpage, "Valentine's Day");
 await mpage.getByRole("list", { name: "Recommended products" }).waitFor();
-await settle(mpage, 2200);
+await settle(mpage, 1200);
+await loadAllImages(mpage);
 await mpage.screenshot({ path: join(OUT, "06-results-mobile.png"), fullPage: false });
 await browser.close();
 console.log("screenshots written to", OUT);

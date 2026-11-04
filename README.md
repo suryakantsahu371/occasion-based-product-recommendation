@@ -16,9 +16,9 @@ More: [autocomplete](docs/screenshots/02-autocomplete-light.png) ·
 [quick view with score breakdown](docs/screenshots/04-quickview-light.png) ·
 [empty state](docs/screenshots/05-empty-light.png) · [mobile 375px](docs/screenshots/06-results-mobile.png)
 
-> **Note on product images.** Every `mainImage` URL in the supplied `products.json` that I tested returns HTTP 404
-> (`s3aws.emilo.in`), so the screenshots show the UI's graceful fallback tile. The image pipeline (lazy load,
-> shimmer placeholder, fallback on error) is implemented and will show real images when the URLs resolve.
+> **Note on product images.** Every `mainImage` URL in the supplied `products.json` returned HTTP 404
+> (`s3aws.emilo.in`), so each product now uses a real photo downloaded from Wikimedia Commons and stored in
+> `frontend/public/product-images/` (see [Image credits](#image-credits)). The UI still falls back to a gift tile if an image fails.
 
 ## Tech stack (mapped to the brief's section 4)
 
@@ -38,7 +38,7 @@ More: [autocomplete](docs/screenshots/02-autocomplete-light.png) ·
 | Labelled occasion input ("What's the occasion?") | Done: [`SearchBar.tsx`](frontend/src/components/SearchBar.tsx) |
 | Visible action trigger | "Find gifts" button, plus Enter key and clickable chips |
 | Ranked results below the input, same page | Done (no routing; the hero compacts upward on search) |
-| Card shows title, category, description snippet, image | Done; image falls back to a tile when the URL fails |
+| Card shows title, category, description snippet, image | Done; local product photos, falls back to a tile if an image fails |
 | Empty-state message | Done ([`EmptyState.tsx`](frontend/src/components/EmptyState.tsx)) |
 | Responsive design (bonus) | 1 / 2 / 3 / 4 columns; checked visually at 1440 px and 375 px |
 | Adapter reads the brief's payload fields | Done: `product_id/productId`, `vendor_id/vendorId`, `vendor_category`, `vendor_category_desc`, `title`, `description`, `files` **and** the catalog's own keys (tested) |
@@ -108,7 +108,7 @@ products.json ─► adapter + filter + quality ─┐    React UI ─► POST /
 
 ```
 backend/app/{config,taxonomy,schemas,adapter,quality,tagger,enrichment,query,retriever,ranker,main}.py
-backend/scripts/{audit,enrich,build_index,evaluate}.py     backend/tests/     backend/data/
+backend/scripts/{audit,enrich,build_index,evaluate,generate_product_images}.py     backend/tests/     backend/data/
 frontend/src/{api.ts, hooks/useRecommendations.ts, components/*}
 ```
 
@@ -220,6 +220,22 @@ respected, in-flight requests cancelled via `AbortController`. `tsc`, ESLint and
 * FAISS flat index is exact and fine at ~100 products; swap for HNSW/Qdrant at scale (isolated in `retriever.py`).
 * Future: learn weights from click data, recipient/budget/delivery filters, CLIP image embeddings, seasonal boost,
   incremental indexing.
+
+## Image credits
+
+* **Source:** product photos come from [Wikimedia Commons](https://commons.wikimedia.org/) (search API, no key needed),
+  fetched by `backend/scripts/generate_product_images.py`. Each product name is mapped to a search term
+  (e.g. "Teddy bears" -> "teddy bear") and the first suitable JPEG (>= 600 px wide) not already used is saved as
+  `frontend/public/product-images/<SKU>_<name>.jpg`; `data/products.json` `mainImage` is set to `/product-images/<file>`.
+* **Licenses:** Commons files carry their own licenses (mostly CC BY / CC BY-SA / public domain) and per-image author
+  attribution is not stored. They are used here for demo purposes only; check each file's license page on Commons
+  before any commercial use.
+* **Regenerate:** `cd backend && python scripts/generate_product_images.py`, then re-run `scripts/enrich.py` and
+  `scripts/build_index.py`. Re-runs skip images that already exist.
+* **Accuracy caveat:** matching is by search term only, so a few photos are approximate (e.g. gift cards, hampers).
+  The catalog's own image URLs are dead, so these are placeholders; swap any file in `frontend/public/product-images/`
+  (or run `scripts/fetch_product_images.py` with a free `PEXELS_API_KEY` for stock photos).
+* AI image generators (Pollinations) were tried first but now require payment, so they are not used.
 
 ## Open-source libraries
 

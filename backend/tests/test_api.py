@@ -34,7 +34,7 @@ def test_recommend_response_shape(client):
         "reasons",
         "breakdown",
     } <= set(first)
-    assert first["image"].startswith("https://")
+    assert first["image"].startswith(("https://", "/product-images/"))
 
 
 def test_empty_results_are_http_200(client):

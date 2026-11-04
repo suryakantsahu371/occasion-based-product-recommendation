@@ -7,3 +7,6 @@ __pycache__/
 node_modules/
 dist/
 .hf/
+
+# Backup written by the image scripts
+backend/data/products.json.bak
