@@ -1,0 +1,9 @@
+fastapi>=0.110,<1
+uvicorn[standard]>=0.29,<1
+pydantic>=2.6,<3
+numpy>=1.26,<3
+sentence-transformers>=2.7,<6
+faiss-cpu>=1.8,<2
+rank-bm25>=0.2.2,<0.3
+scikit-learn>=1.4,<2
+rapidfuzz>=3.6,<4

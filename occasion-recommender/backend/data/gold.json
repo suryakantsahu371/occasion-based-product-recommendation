@@ -1,0 +1,96 @@
+{
+  "_note": "Relevance judged by reading each product's title/description (binary). Not derived from the tagger's output.",
+  "occasions": [
+    {"query": "Birthday", "relevant": [
+      {"id": "cmlavyh2a0005v8ool6hzt8s4", "title": "Flower (bouquet for birthdays)"},
+      {"id": "cmkz9pq4v003ons015tcyfqxk", "title": "lilies"},
+      {"id": "cml0xpvkh001as501dfmlylum", "title": "Teddy bears"},
+      {"id": "cml1ylzk2001rma01028g7yiz", "title": "Luxury Chocolates"},
+      {"id": "cml24k7im00drma01dhef25nv", "title": "Gretting cards"},
+      {"id": "cml23z9no00c0ma01z8gwc7dl", "title": "Gift Boxes"},
+      {"id": "cml1yz3dz002zma01mrpgk7ta", "title": "Personalized story book"},
+      {"id": "cml0x7yo10001s501lubeuasm", "title": "Arts & craft kits"}
+    ]},
+    {"query": "Kids birthday", "relevant": [
+      {"id": "cml0x7yo10001s501lubeuasm", "title": "Arts & craft kits"},
+      {"id": "cml0xd8tp000cs501fuwvpwat", "title": "DIY Slime Kits"},
+      {"id": "cml0xhl9q000qs5013vjlgoqs", "title": "Painting & coloring kits"},
+      {"id": "cml0xm0ez0011s50120mtdokp", "title": "Soft toys & Plushies"},
+      {"id": "cml0xpvkh001as501dfmlylum", "title": "Teddy bears"},
+      {"id": "cml0xtjid001ns501t1ru69f4", "title": "Keychain plushies"},
+      {"id": "cml0xzaj20028s501y75ib4p1", "title": "Xylophones"},
+      {"id": "cml0y5rkh002ss501r8zg96ez", "title": "Toy guitars"}
+    ]},
+    {"query": "Wedding", "relevant": [
+      {"id": "cml0ocdk2001fpw01q5ruobld", "title": "Ready to wear Sarees"},
+      {"id": "cml0o5rle000vpw01kw67b9b4", "title": "Kashmiri Suits"},
+      {"id": "cml0o9fj50015pw01swdwik5l", "title": "Straigh fit Kurtis"},
+      {"id": "cml0pg8cw0051pw01yrblziq6", "title": "Gold Choker Necklave"},
+      {"id": "cml0pijat0059pw01g3xuc465", "title": "Multicolor Choker Necklace"},
+      {"id": "cml0q7b8t007apw01owfj35sc", "title": "Gold Drop Earrings"},
+      {"id": "cml0pzn5p006kpw012nyxf9mo", "title": "Gold Stacked Bracelet"},
+      {"id": "cmkz9xndy004ans01uvo9v1at", "title": "Marigold (weddings in description)"}
+    ]},
+    {"query": "Valentine's Day", "relevant": [
+      {"id": "cml1yf8tf0019ma01nm1sc284", "title": "Forever Rose"},
+      {"id": "cml1yj16q001ima015eajhwxy", "title": "Couple Perfumes"},
+      {"id": "cml1z8hhr0046ma01n209gnug", "title": "Touch Bracelets"},
+      {"id": "cml1ylzk2001rma01028g7yiz", "title": "Luxury Chocolates"},
+      {"id": "cml1z50rh003hma01z28erisy", "title": "Open When Letters"},
+      {"id": "cml1z2j130038ma011ple4wwy", "title": "Couple Mugs"},
+      {"id": "cmmxgiyuv0001v86gwypmc4am", "title": "Flower (cherry blossom, romantic)"},
+      {"id": "cml1ynu4v0020ma016j68oyih", "title": "Body Oils (for couples)"}
+    ]},
+    {"query": "Diwali", "relevant": [
+      {"id": "cml25lds400fgma0155hp1at1", "title": "Diwali Dry fruits hampers"},
+      {"id": "cml265ss000gcma01l3qqapo5", "title": "Diwali Luxury Gift Hampers"},
+      {"id": "cmkz9xndy004ans01uvo9v1at", "title": "Marigold"},
+      {"id": "cml0ruttu00a3pw01uf9jbvg4", "title": "Plant Based candles"},
+      {"id": "cml0pg8cw0051pw01yrblziq6", "title": "Gold Choker Necklave (festive)"},
+      {"id": "cml0q7b8t007apw01owfj35sc", "title": "Gold Drop Earrings (festive)"},
+      {"id": "cml24fnp600d5ma01bepjidr4", "title": "Seasonal Gift Cards"}
+    ]},
+    {"query": "Holi", "relevant": [
+      {"id": "cml25qcml00foma016eap5ggb", "title": "Holi Dry fruits hampers"},
+      {"id": "cml263uqb00g4ma01vaxh1tt2", "title": "Holi Luxury Gift Hampers"},
+      {"id": "cml24fnp600d5ma01bepjidr4", "title": "Seasonal Gift Cards"},
+      {"id": "cmkz9xndy004ans01uvo9v1at", "title": "Marigold (colourful flowers)"},
+      {"id": "cml0pijat0059pw01g3xuc465", "title": "Multicolor Choker Necklace (vibrant)"}
+    ]},
+    {"query": "Christmas", "relevant": [
+      {"id": "cml25ud8z00fwma01io80v02y", "title": "Christmas Dry fruits hampers"},
+      {"id": "cml267wyv00gkma01cxgwlxi6", "title": "Christmas Luxury Gift Hampers"},
+      {"id": "cml24fnp600d5ma01bepjidr4", "title": "Seasonal Gift Cards"},
+      {"id": "cml23pglt00b9ma01231jdiu8", "title": "Gift Sets & Bundles"},
+      {"id": "cml23srgd00bima01wk8mku8u", "title": "Gift Wrapping"},
+      {"id": "cml23z9no00c0ma01z8gwc7dl", "title": "Gift Boxes"}
+    ]},
+    {"query": "Housewarming", "relevant": [
+      {"id": "cml26hwjr00h8ma01ppapz91y", "title": "Housewarming Gifts"},
+      {"id": "cml0s2vel0009o201p45d71ys", "title": "Indoor plants & planters"},
+      {"id": "cml0rz11g0001o201tuvskhap", "title": "Natural fiber decor items"},
+      {"id": "cml0ruttu00a3pw01uf9jbvg4", "title": "Plant Based candles"},
+      {"id": "cml20640b0065ma01y6e9t4ep", "title": "Lavender Candle"},
+      {"id": "cml2022uc005vma01uzrw7xwh", "title": "Cherry Blossom Candle"},
+      {"id": "cml0s6fu1000ho2019rj4ktpr", "title": "Bamboo lifestyle products"},
+      {"id": "cml0sd2rt000xo201e8ofua1n", "title": "Recycled & Upcycled Gifts (decor)"}
+    ]},
+    {"query": "Baby shower", "relevant": [
+      {"id": "cml26fw1x00h0ma01wk59t9q7", "title": "Baby Shower & Newborn Gifts"},
+      {"id": "cml0xm0ez0011s50120mtdokp", "title": "Soft toys & Plushies"},
+      {"id": "cml0xpvkh001as501dfmlylum", "title": "Teddy bears"},
+      {"id": "cml1yz3dz002zma01mrpgk7ta", "title": "Personalized story book"},
+      {"id": "cml23pglt00b9ma01231jdiu8", "title": "Gift Sets & Bundles"}
+    ]},
+    {"query": "Office party", "relevant": [
+      {"id": "cml0jypzv0001mw01ceaou3bv", "title": "Self-Care Kits"},
+      {"id": "cml0k49no0009mw01wvphqyiu", "title": "Health & Fitness Gifts"},
+      {"id": "cml0k89cs000hmw011761nqxa", "title": "Mental Wellness Gifts"},
+      {"id": "cml0kbgjj000pmw01hzp8vlsy", "title": "Rollerball pens"},
+      {"id": "cml0keatk000xmw01qsjlva5z", "title": "Fountain Pens"},
+      {"id": "cml0kmucz001bmw01sl0zdfsg", "title": "Metal pens"},
+      {"id": "cml0kpr9r001jmw016jm8pai6", "title": "Executive pens"},
+      {"id": "cml0ku816001rmw015908bil4", "title": "Vintage Watch"}
+    ]}
+  ]
+}
